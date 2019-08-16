@@ -14,7 +14,7 @@ public class DemoController {
     private DemoService demoService;
 
     @RequestMapping("/{name}")
-    public String demo(Model model, @PathVariable("name") String name) {
+    public Object demo(Model model, @PathVariable("name") String name) {
         return demoService.getContent(name);
     }
 }

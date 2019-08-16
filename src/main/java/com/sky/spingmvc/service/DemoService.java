@@ -1,6 +1,8 @@
 package com.sky.spingmvc.service;
 
+import java.util.Map;
+
 public interface DemoService {
 
-    public String getContent(String name);
+    Map<String, String> getContent(String name);
 }
