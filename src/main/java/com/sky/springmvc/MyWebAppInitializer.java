@@ -1,5 +1,7 @@
-package com.sky.spingmvc;
+package com.sky.springmvc;
 
+import com.sky.springmvc.config.AppConfig;
+import com.sky.springmvc.config.RootConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -9,16 +11,16 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  */
 public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-    // 获取根容器的配置类(Spring的配置文件)，父容器
+    // 获取Root上下文的配置类(Spring的配置文件)，父容器
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[0];
+        return new Class[]{RootConfig.class};
     }
 
-    // 获取web容器的配置类(SpringMVC配置文件)，子容器
+    // 获取Servlet上下文的配置类(SpringMVC配置文件)，子容器
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[0];
+        return new Class[]{AppConfig.class};
     }
 
     // 获取DispatcherServlet的映射信息
