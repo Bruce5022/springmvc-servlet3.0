@@ -16,6 +16,7 @@ public class DemoController {
 
     @RequestMapping("/demo")
     public ModelAndView demo(ModelAndView modelAndView) {
+        System.out.println(">>>DemoController<<<");
         modelAndView.setViewName("demo");
         return modelAndView;
     }

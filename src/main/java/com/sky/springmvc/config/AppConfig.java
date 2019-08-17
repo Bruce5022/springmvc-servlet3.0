@@ -1,12 +1,10 @@
 package com.sky.springmvc.config;
 
+import com.sky.springmvc.interceptor.MyHandlerInterceptor;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 // Spring的容器只扫描controller：子容器
@@ -30,4 +28,9 @@ public class AppConfig implements WebMvcConfigurer {
 //        registry.jsp("/WEB-INF/", ".html");
     }
 
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new MyHandlerInterceptor()).addPathPatterns("/**");
+    }
 }
