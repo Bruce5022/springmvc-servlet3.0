@@ -1,9 +1,7 @@
-package com.sky.spingmvc;
+package com.sky.springmvc;
+
 
 public class AppTest {
-    /**
-     * Rigorous Test :-)
-     */
     public void shouldAnswerWithTrue() {
 
     }
