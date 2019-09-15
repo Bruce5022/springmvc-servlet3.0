@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 public class AsyncController {
 
+
     // 接受并发量大的创建订单请求,异步执行创建,这里立即返回
     @RequestMapping(value = "/createOrder", produces = "application/json;charset=utf-8;")
     public DeferredResult<Object> createOrder() {
@@ -37,7 +38,7 @@ public class AsyncController {
         long start = System.currentTimeMillis();
         System.out.println("主线程[" + Thread.currentThread().getName() + "]- do async01 >>>");
         Callable<String> callable = () -> {
-            System.out.println("副线程[" + Thread.currentThread().getName() + "]- 开始...");
+            System.out.println("副线程[ " + Thread.currentThread().getName() + " ]- 开始...");
             TimeUnit.SECONDS.sleep(5);
             System.out.println("副线程[" + Thread.currentThread().getName() + "]- 结束 ! 耗时: " + ((System.currentTimeMillis() - start) / 1000.0) + "秒");
             return "AsyncController.async01()";
